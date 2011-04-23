@@ -1,0 +1,27 @@
+<div class="left_side">
+    <div class="left_side_title">
+        <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
+    </div>
+    <div class="image_holder">
+        
+    </div>
+</div>
+<div class="main_frame">
+<div class="main_frame_top">
+    <span><%=h(@user.firstname + " " + @user.lastname)%></span>
+</div>
+<div class="reg_container">    
+    <%= flash[:notice] %>    
+    <p><%= mail_to h(@user.email) %></p>
+    <%= button_to "Szerkeszt", :action => "edit", :id => @user.id %>
+    <%= button_to "Töröl", { :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
+</div>
+
+<div class="main_image_container">
+	<h2>Felhasználó termékei:</h2>
+    <% for product in @products %>
+        <%= content_tag_for(:div,product) do %>
+            <%= link_to image_tag(product.add_pic, :alt => product.add_name, :width => "70px", :height => "70px", :title => product.add_name), :controller=>"product", :action=>"show", :id => product.id %>           
+        <% end %>
+    <% end %>
+</div>

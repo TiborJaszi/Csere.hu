@@ -1,0 +1,12 @@
+﻿Csere.hu portál Rails on Ruby előadáshoz.
+
+Főbb funckiók:
+- Regisztráció
+- Termékek feltöltése / megtekintése / listázása / szerkesztése / törlése
+- Felhasználók listázása / megtekintése / szerkesztése / törlése
+X Bejelentkezés
+X Képek feltöltése
+X Tulajdonos kiválasztása / autómatikus felismerés feltöltésnél
+X Termékek kiválasztása / bejelölése / tulajdonos váltás
+X Naplózás / Fal üzenetek
+X Barátok

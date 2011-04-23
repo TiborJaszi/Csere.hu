@@ -1,0 +1,21 @@
+<div class="left_side">
+    <div class="left_side_title">
+        <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
+    </div>
+    <div class="image_holder">
+        <img src="<%= @product.add_pic %>" alt="<%= @product.add_name %>" width="240px" />
+        <div class="product_name"><span><%= @product.add_name %></span></div>
+    </div>
+</div>
+<div class="main_frame">
+<div class="main_frame_top"><span>Termék</span>   
+</div>
+<div class="reg_container">    
+    <%= flash[:msg] %>
+    <h2><%=h(@product.add_name)%></h2>
+    Érték: <%=h(@product.add_price)%> HUF <br>
+	Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
+    <%= button_to "Szerkeszt", :action => "edit", :id => @product.id %>
+    <%= button_to "Töröl", { :action => "destroy", :id => @product.id }, :confirm => "Biztosan törli?", :method => :delete %>
+    <%= button_to "Vissza", :action => "index" %>
+</div>

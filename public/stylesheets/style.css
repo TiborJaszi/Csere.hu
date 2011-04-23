@@ -1,0 +1,110 @@
+* {
+	border:none;
+	margin:0;
+	padding:0;
+}
+.clear {
+	clear:both;
+	float:none;
+}
+.header {
+	background:#dd4510;
+	width:100%;
+	height:60px;
+	overflow:hidden;
+}	
+	.menu {float:right;}
+	.menu a {
+		padding:5px;
+		color:#FFF;
+		font-weight:bold;
+		text-decoration:none;
+	}
+	.menu a:hover {background:#C30;}
+.wrapper {
+	width:960px;
+	margin:0 auto;
+}
+.left_side {
+	margin-top:-35px;
+	float:left;
+	width:240px;
+	overflow:hidden;
+}
+	.left_side_title {
+		height:35px;
+		width:100%;
+	}
+		.left_side_title a {
+			color:#FFF;
+			font-size:32px;
+			letter-spacing:3px;
+			font-weight:bold;
+			text-decoration:none;
+		}
+.main_frame {
+	float:right;
+	width:720px;
+	overflow:hidden;
+	outline:#000 solid 1px;
+	margin-top:-35px;
+}
+	.main_frame_top {
+		height:25px;
+		background:#e6744c;
+		overflow:hidden;
+		width:100%;
+		padding:5px;
+	}
+		.main_frame_top span {color:#FFF; font-weight:bold;}
+		.product_name {
+			background:#666;
+			overflow:hidden;
+			color:#FFF;
+			margin:5px 0;
+			padding:5px;
+		}
+	.main_frame_content {
+		float:left;
+		width:100%;
+		min-height:300px;
+		overflow:hidden;
+	}
+		.main_image_container {padding:5px;}
+		.main_image_container img {
+			margin-right:5px;
+			margin-bottom:5px;
+			float:left;
+			outline:#333 1px solid;
+			width:75px;
+			height:75px;
+		}
+		.main_image_container img:hover {
+			outline:#C00 2px solid;			
+		}
+		.indicator {
+			margin:0px 0 5px;
+			width:100%;
+			outline:#333 1px solid;
+			background:#999;
+			height:20px;
+		}
+		.wall {
+			
+		}
+			.wall h2 {
+				font-size:110%;
+				margin:10px 0px 15px;
+			}
+			
+			
+			.product {float:left;}
+			.hasonlo_termel_link {display:block;}
+	
+	
+/* REGISZTRÁCIÓ / LOGIN */
+.reg_container input {line-height:24px; font-size:20px; border:1px solid #999; border-radius: 3px; margin:5px 0px; padding:2px;}
+.reg_container {margin:5px;}
+.reg_container label {width:250px !important;}
+.login_container {float:right; margin-right:5px;}
+.login_container input {line-height:18px; font-size:16px; padding:1px;}

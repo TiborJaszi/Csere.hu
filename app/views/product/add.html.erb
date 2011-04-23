@@ -1,0 +1,41 @@
+<div class="left_side">
+    <div class="left_side_title">
+        <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
+    </div>
+    <div class="image_holder">        
+    </div>
+</div>
+<div class="main_frame">
+<div class="main_frame_top"><span>Termék hozzáadása</span></div>
+    <div class="main_frame_content">
+    	<div class="reg_container">
+        <%= flash[:msg] %>
+        <fieldset>
+            <%= form_for :product, :url => {:action => "create"} do |form| %>
+            <div>
+                <%= form.label :Megnevezés %><br>
+                <%= form.text_field :add_name %>
+            </div>
+            <div>
+                <%= form.label :Érték %><br>
+                <%= form.number_field :add_price %>HUF
+            </div>
+            <div>
+                <%= form.label :Kép %><br>
+                <%= form.file_field :add_pic %>
+            </div>
+            <div>
+                <%= form.label :Tulajdonos %><br>
+                <%= form.number_field :login_id %>
+            </div>
+            <%= submit_tag "Hozzáadás" %>
+            <% end %>
+        </fieldset>
+        <span><strong>TODO:</strong></span><br>
+		<ul>
+        	<li>Tulajdonos selectet megcsinálni</li>
+            <li>Upload</li>
+        </ul>
+        </div>
+	</div>
+</div>

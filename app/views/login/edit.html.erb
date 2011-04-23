@@ -1,0 +1,37 @@
+<div class="left_side">
+    <div class="left_side_title">
+        <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
+    </div>
+    <div class="image_holder">
+        
+    </div>
+</div>
+<div class="main_frame">
+<div class="main_frame_top">
+    <span>Felhasználó szerkesztése</span>
+</div>
+    <div class="reg_container">
+        <%= flash[:notice] %>
+        <fieldset>
+            <%= form_for :user, :url => {:action => "update", :id => @user.id } do |form| %>
+            <div>
+                <%= form.label :Keresztnév %><br>
+                <%= form.text_field :firstname %>
+            </div>
+            <div>
+                <%= form.label :Vezetéknév %><br>
+                <%= form.text_field :lastname %>
+            </div>
+            <div>
+                <%= form.label :Email %><br>
+                <%= form.text_field :email %>
+            </div>
+            <div>
+                <%= form.label :Jelszó %><br>
+                <%= form.password_field :password %>
+            </div>
+            <%= submit_tag "Módosítás" %>
+            <% end %>
+        </fieldset>
+    </div>
+</div>
