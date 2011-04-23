@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema.define(:version => 20110417154858) do
 
-# Could not dump table "logins" because of following Mysql2::Error
-#   Invalid date: BTREE
+# Could not dump table "logins" because of following ArgumentError
+#   invalid date
 
-# Could not dump table "products" because of following Mysql2::Error
-#   Invalid date: BTREE
+# Could not dump table "products" because of following ArgumentError
+#   invalid date
 
 end
