@@ -5,11 +5,11 @@ Főbb funckiók:
 - Termékek feltöltése / megtekintése / listázása / szerkesztése / törlése
 - Felhasználók listázása / megtekintése / szerkesztése / törlése
 X Bejelentkezés
-X Képek feltöltése
+- Képek feltöltése
 - Tulajdonos kiválasztása
 + Amennyiben a felhasználó le lett törölve, a terméknél "Tulajdonos nem található" hibaüzenet jelenik meg
 + Gombok rendezve
 X Automatikus tulajdonos felismerés feltöltésnél
-X Termékek kiválasztása / bejelölése / tulajdonos váltás
+- Termékek kiválasztása / bejelölése / tulajdonos váltás
 X Naplózás / Fal üzenetek
 X Barátok
