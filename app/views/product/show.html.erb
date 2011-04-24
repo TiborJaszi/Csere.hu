@@ -3,7 +3,7 @@
         <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
     </div>
     <div class="image_holder">
-        <img src="<%= @product.add_pic %>" alt="<%= @product.add_name %>" width="240px" />
+		<%= image_tag "products/" + @product.get_image, :width => "240px", :alt => @product.add_name, :title => @product.add_name %>
         <div class="product_name"><span><%= @product.add_name %></span></div>
     </div>
 </div>

@@ -13,11 +13,13 @@ class ProductController < ApplicationController
   end
 
   def show
-	 @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id")
+   @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id")
   end
 
   def create
+    handle_image_upload(params)
     @product = Product.new(params[:product])
+    
     
     if @product.save
       flash[:msg] = "Sikeresen hozzáadva"
@@ -28,6 +30,7 @@ class ProductController < ApplicationController
   end
   
   def update
+    handle_image_upload(params)
     if @product.update_attributes(params[:product])
       flash[:msg] = "Sikeres frissítés"
       redirect_to :action => "show", :id => @product.id
@@ -45,5 +48,17 @@ class ProductController < ApplicationController
   private
   def find_product
     @product=Product.find(params[:id])
+  end
+  private
+
+  def handle_image_upload(params)
+    if params[:add_pic]
+      uploaded_io = params[:add_pic]
+      File.open(Rails.root.join('public', 'images','products',
+          uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:product]['add_pic'] = uploaded_io.original_filename
+    end
   end
 end

@@ -1,8 +1,7 @@
 class Login < ActiveRecord::Base
   has_many :product
   
-  attr_accessor :password
-  
+  attr_accessor :password  
   validates_length_of     :password, :within => 4..20, :if => :password_required?
   
   before_save :encrypt_password

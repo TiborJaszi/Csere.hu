@@ -11,7 +11,7 @@
     	<div class="reg_container">
         <%= flash[:msg] %>
         <fieldset>
-            <%= form_for :product, :url => {:action => "create"} do |form| %>
+            <%= form_for :product, :html => {:multipart => true}, :url => {:action => "create"} do |form| %>
             <div>
                 <%= form.label :Megnevezés %><br>
                 <%= form.text_field :add_name %>
@@ -22,7 +22,7 @@
             </div>
             <div>
                 <%= form.label :Kép %><br>
-                <%= form.file_field :add_pic %>
+                <%= file_field_tag 'add_pic' %>
             </div>
             <div>
                 <%= form.label :Tulajdonos %><br>

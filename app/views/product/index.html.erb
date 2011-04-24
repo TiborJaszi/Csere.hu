@@ -3,7 +3,7 @@
         <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
     </div>
     <div class="image_holder">
-        <img src="/img/box.jpg" alt="Minta termék" width="240px" />
+        <img src="/images/box.jpg" alt="Minta termék" width="240px" />
         <div class="product_name"><span>Aktív termék</span></div>
     </div>
 </div>
@@ -14,7 +14,7 @@
         <div class="main_image_container">
             <% for product in @products %>
                 <%= content_tag_for(:div,product) do %>
-                    <%= link_to image_tag(product.add_pic, :alt => product.add_name, :title => product.add_name), :action=>"show", :id => product.id %>           
+                    <%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :title => product.add_name), :action=>"show", :id => product.id %>           
                 <% end %>
             <% end %>
             <div class="clear"></div>
