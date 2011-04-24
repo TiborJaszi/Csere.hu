@@ -28,7 +28,7 @@
             </div>
             <div>
                 <%= form.label :Tulajdonos %><br>
-                <%= form.number_field :login_id %>
+				<%= select :product, :login_id ,Login.find(:all).collect{|p| [p.firstname + " " + p.lastname, p.id]}%>
             </div>
             <%= submit_tag "Mentés" %>
             <% end %>

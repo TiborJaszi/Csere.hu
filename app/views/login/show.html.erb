@@ -10,14 +10,16 @@
 <div class="main_frame_top">
     <span><%=h(@user.firstname + " " + @user.lastname)%></span>
 </div>
-<div class="reg_container">    
+<div class="reg_container clear">    
     <%= flash[:notice] %>    
     <p><%= mail_to h(@user.email) %></p>
-    <%= button_to "Szerkeszt", :action => "edit", :id => @user.id %>
-    <%= button_to "Töröl", { :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
+	<div class="gomb">
+    	<%= link_to "Szerkeszt",{ :controller => "login", :action => "edit", :id => @user.id } %>
+    	<%= link_to "Töröl", { :controller => "login", :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
+	</div>
 </div>
 
-<div class="main_image_container">
+<div class="main_image_container clear">
 	<h2>Felhasználó termékei:</h2>
     <% for product in @products %>
         <%= content_tag_for(:div,product) do %>

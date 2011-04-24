@@ -13,7 +13,7 @@ class ProductController < ApplicationController
   end
 
   def show
-	@kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id")
+	 @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id")
   end
 
   def create

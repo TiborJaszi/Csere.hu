@@ -14,8 +14,14 @@
     <%= flash[:msg] %>
     <h2><%=h(@product.add_name)%></h2>
     Érték: <%=h(@product.add_price)%> HUF <br>
-	Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
-    <%= button_to "Szerkeszt", :action => "edit", :id => @product.id %>
-    <%= button_to "Töröl", { :action => "destroy", :id => @product.id }, :confirm => "Biztosan törli?", :method => :delete %>
-    <%= button_to "Vissza", :action => "index" %>
+	<% if @kie %>
+		Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
+	<% else %>
+		<strong>Tulajdonos nem található</strong>
+	<% end %>
+    <div class="gomb">
+		<%= link_to "Szerkeszt", :controller => "product", :action => "edit", :id => @product.id %>
+    	<%= link_to "Töröl", { :controller => "product", :action => "destroy", :id => @product.id }, :confirm => "Biztosan törli?", :method => :delete %>
+    	<%= link_to "Vissza", :controller => "product", :action => "index" %>
+	</div>
 </div>

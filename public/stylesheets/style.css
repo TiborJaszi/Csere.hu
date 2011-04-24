@@ -103,8 +103,19 @@
 	
 	
 /* REGISZTRÁCIÓ / LOGIN */
-.reg_container input {line-height:24px; font-size:20px; border:1px solid #999; border-radius: 3px; margin:5px 0px; padding:2px;}
+.reg_container input, .reg_container select {line-height:24px; font-size:20px; border:1px solid #999; border-radius: 3px; margin:5px 0px; padding:2px;}
 .reg_container {margin:5px;}
 .reg_container label {width:250px !important;}
 .login_container {float:right; margin-right:5px;}
 .login_container input {line-height:18px; font-size:16px; padding:1px;}
+.gomb a {
+	float: left;
+	padding: 5px 8px;
+	background-color: #CCCCCC;
+	border-radius: 3px;
+	border:#999999 1px solid;
+	margin:10px 5px 10px 0;
+	color:#000000;
+	text-decoration: none;
+}
+.gomb a:hover {border-color: #CC3300;}
