@@ -23,7 +23,7 @@
 	<h2>Felhasználó termékei:</h2>
     <% for product in @products %>
         <%= content_tag_for(:div,product) do %>
-            <%= link_to image_tag(product.add_pic, :alt => product.add_name, :width => "70px", :height => "70px", :title => product.add_name), :controller=>"product", :action=>"show", :id => product.id %>           
+            <%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :width => "70px", :height => "70px", :title => product.add_name), :controller=>"product", :action=>"show", :id => product.id, :owner => params['id'] %>           
         <% end %>
     <% end %>
 </div>

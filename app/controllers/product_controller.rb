@@ -1,15 +1,24 @@
 # Encoding: UTF-8
 class ProductController < ApplicationController
-  before_filter :find_product, :except => [:index, :add, :create, :list, :own]
+  before_filter :find_product, :except => [:index, :add, :create, :list, :own, :aktivalas]
   def new
     @product = Product.new
   end
 
   def edit
   end
+  
+  def aktivalas
+    @user = Login.find_by_id(params["owner"])
+    @user.update_attributes(:aktiv => params["id"])
+    redirect_to :action => "index"
+  end
 
   def index
     @products = Product.find(:all, :order => "add_price")
+    #Aktív user = 1 (teszteléshez)
+    u = Login.find_by_id(1)
+    @aktiv = Product.find_by_id(u.aktiv, :select => "add_name,add_price,add_pic")
   end
 
   def show
@@ -49,8 +58,8 @@ class ProductController < ApplicationController
   def find_product
     @product=Product.find(params[:id])
   end
+  
   private
-
   def handle_image_upload(params)
     if params[:add_pic]
       uploaded_io = params[:add_pic]

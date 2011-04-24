@@ -3,8 +3,8 @@
         <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
     </div>
     <div class="image_holder">
-        <img src="/images/box.jpg" alt="Minta termék" width="240px" />
-        <div class="product_name"><span>Aktív termék</span></div>
+        <%= image_tag "products/" + @aktiv.add_pic, :width => "240px", :alt => @aktiv.add_name, :title => @aktiv.add_name %>
+        <div class="product_name"><span><%= @aktiv.add_name %></span></div>
     </div>
 </div>
 <div class="main_frame">
