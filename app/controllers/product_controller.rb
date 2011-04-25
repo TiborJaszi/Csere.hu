@@ -63,7 +63,7 @@ class ProductController < ApplicationController
   def handle_image_upload(params)
     if params[:add_pic]
       uploaded_io = params[:add_pic]
-      File.open(Rails.root.join('public', 'images','products',
+      File.open(Rails.root.join('tmp', 'upload','products',
           uploaded_io.original_filename), 'wb') do |file|
         file.write(uploaded_io.read)
       end

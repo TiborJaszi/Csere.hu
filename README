@@ -5,7 +5,7 @@ Főbb funckiók:
 - Termékek feltöltése / megtekintése / listázása / szerkesztése / törlése
 - Felhasználók listázása / megtekintése / szerkesztése / törlése
 X Bejelentkezés
-- Képek feltöltése
+- Képek feltöltése (herokun read-only filerendszer van!)
 - Tulajdonos kiválasztása
 + Amennyiben a felhasználó le lett törölve, a terméknél "Tulajdonos nem található" hibaüzenet jelenik meg
 + Gombok rendezve
