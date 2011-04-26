@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424171538) do
+ActiveRecord::Schema.define(:version => 20110426225143) do
 
 # Could not dump table "logins" because of following ArgumentError
 #   invalid date

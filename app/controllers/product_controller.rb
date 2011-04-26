@@ -15,14 +15,12 @@ class ProductController < ApplicationController
   end
 
   def index
-    @products = Product.find(:all, :order => "add_price")
-    #Aktív user = 1 (teszteléshez)
-    u = Login.find_by_id(1)
-    @aktiv = Product.find_by_id(u.aktiv, :select => "add_name,add_price,add_pic")
+    @products = Product.find(:all, :order => "add_price", :conditions => "login_id <> #{@current_user.id}")
+    @aktiv = Product.find_by_id(@current_user.aktiv, :select => "add_name,add_price,add_pic")
   end
 
   def show
-   @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id")
+   @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id,aktiv")
   end
 
   def create
@@ -61,11 +59,13 @@ class ProductController < ApplicationController
   
   private
   def handle_image_upload(params)
-    if params[:add_pic]
-      uploaded_io = params[:add_pic]
-      File.open(Rails.root.join('public', 'images','products',
-          uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
+    if params[:product][:add_pic]
+      uploaded_io = params[:product][:add_pic]
+      dir = "public/images/products/"
+      if !File.exists?(dir)
+        Dir.Mkdir(dir)
+      end
+      File.open(Rails.root.join(dir, uploaded_io.original_filename), 'wb') do |file| file.write(uploaded_io.read)
       end
       params[:product]['add_pic'] = uploaded_io.original_filename
     end

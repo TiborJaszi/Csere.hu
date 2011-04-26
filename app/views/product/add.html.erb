@@ -22,11 +22,10 @@
             </div>
             <div>
                 <%= form.label :Kép %><br>
-                <%= file_field_tag 'add_pic' %> (herokun read-only filerendszer van!)
+                <%= form.file_field :add_pic %> (herokun read-only filerendszer van!)
             </div>
             <div>
-                <%= form.label :Tulajdonos %><br>
-                <%= select :product, :login_id ,Login.find(:all).collect{|p| [p.firstname + " " + p.lastname, p.id]}%>
+                <%= form.hidden_field :login_id, :value => session[:user]%>
             </div>
             <%= submit_tag "Hozzáadás" %>
             <% end %>

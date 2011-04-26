@@ -16,8 +16,12 @@
     Érték: <%=h(@product.add_price)%> HUF <br>
 	<% if @kie %>
 		Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
-		<% if @kie.id == 1 %>
-			<%= link_to "Aktiválás", :action => "aktivalas", :id => @product.id, :owner => @kie.id %>
+		<% if @kie.id == session[:user] %>
+			<% if @kie.aktiv != @product.id %>
+				<%= link_to "Aktiválás", :action => "aktivalas", :id => @product.id, :owner => @kie.id %>
+			<% else %>
+				<span>Aktív</span>
+			<% end %>
 		<% end %>
 	<% else %>
 		<strong>Tulajdonos nem található</strong>
