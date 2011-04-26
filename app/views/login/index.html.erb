@@ -34,4 +34,21 @@
             <% end %>
         </fieldset>
     </div>
+<hr />
+	<div class="reg_container">
+        <%= flash[:notice] %>
+        <fieldset>
+            <%= form_for :user, :url => {:action => "login"} do |form| %>
+            <div>
+                <%= form.label :Email %><br>
+                <%= form.text_field :email %>
+            </div>
+            <div>
+                <%= form.label :Jelszó %><br>
+                <%= form.password_field :password %>
+            </div>
+            <%= submit_tag "Bejelentkezés" %>
+            <% end %>
+        </fieldset>
+    </div>
 </div>
