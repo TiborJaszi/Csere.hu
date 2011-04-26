@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 class LoginController < ApplicationController
-  before_filter :find_user, :except => [:index, :new, :create, :list]
+  before_filter :find_user, :except => [:index, :new, :create, :list, :login, :logout]
   def new
     @user = Login.new
   end
@@ -32,7 +32,7 @@ class LoginController < ApplicationController
       render :action => "new"
     end
   end
-  
+    
   def update
     if @user.update_attributes(params[:user])
       flash[:notice] = "Sikeres frissítés"
@@ -46,6 +46,24 @@ class LoginController < ApplicationController
     @user.destroy
     flash[:notice] = "Felhasználó törötve"
     redirect_to :action => "index"
+  end
+  
+  def login
+    @current_user = Login.authenticate(params[:user][:l_email],params[:user][:l_password])
+    if @current_user
+      session[:user]=@current_user.id
+      flash[:notice] = "Sikeres bejelentkezés!"
+      redirect_to :controller => "product", :action => "index"
+    else
+      flash[:notice] = "Hibás email vagy jelszó!"
+      redirect_to :controller => "login", :action => "index"
+    end
+  end
+
+  def logout
+    reset_session
+    flash[:notice] = "Sikeresen kijelentkezett! Viszont látásra!"
+    redirect_to :controller => "login", :action => "index"
   end
   
   private

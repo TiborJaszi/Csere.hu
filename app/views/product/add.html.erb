@@ -9,7 +9,7 @@
 <div class="main_frame_top"><span>Termék hozzáadása</span></div>
     <div class="main_frame_content">
     	<div class="reg_container">
-        <%= flash[:msg] %>
+        <%= flash[:notice] %>
         <fieldset>
             <%= form_for :product, :html => {:multipart => true}, :url => {:action => "create"} do |form| %>
             <div>

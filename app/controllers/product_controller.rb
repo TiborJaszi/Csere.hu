@@ -31,7 +31,7 @@ class ProductController < ApplicationController
     
     
     if @product.save
-      flash[:msg] = "Sikeresen hozzáadva"
+      flash[:notice] = "Sikeresen hozzáadva"
       redirect_to :action => "show", :id => @product.id
     else
       render :action => "new"
@@ -41,7 +41,7 @@ class ProductController < ApplicationController
   def update
     handle_image_upload(params)
     if @product.update_attributes(params[:product])
-      flash[:msg] = "Sikeres frissítés"
+      flash[:notice] = "Sikeres frissítés"
       redirect_to :action => "show", :id => @product.id
     else
       render :action => "edit"
@@ -50,7 +50,7 @@ class ProductController < ApplicationController
 
   def destroy
     @product.destroy
-    flash[:msg] = "Termék törötve"
+    flash[:notice] = "Termék törötve"
     redirect_to :action => "index"
   end
   

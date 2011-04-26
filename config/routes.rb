@@ -1,4 +1,8 @@
 CsereHu::Application.routes.draw do
+  get "session/create"
+
+  get "session/destroy"
+
   get "product/add"
   get "product/edit"
   get "product/index"

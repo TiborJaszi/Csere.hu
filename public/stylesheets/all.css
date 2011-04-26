@@ -7,6 +7,11 @@
 	clear:both;
 	float:none;
 }
+
+.fl {float: left;}
+.fr {float: right;}
+.50 {width: 50%;}
+
 .header {
 	background:#dd4510;
 	width:100%;
@@ -119,3 +124,5 @@
 	text-decoration: none;
 }
 .gomb a:hover {border-color: #CC3300;}
+
+

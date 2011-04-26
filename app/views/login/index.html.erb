@@ -10,8 +10,8 @@
 <div class="main_frame_top">
     <span>Felhasználó létrehozása</span>
 </div>
-    <div class="reg_container">
-        <%= flash[:notice] %>
+	<%= flash[:notice] %>
+    <div class="reg_container fl 50">        
         <fieldset>
             <%= form_for :user, :url => {:action => "create"} do |form| %>
             <div>
@@ -34,18 +34,16 @@
             <% end %>
         </fieldset>
     </div>
-<hr />
-	<div class="reg_container">
-        <%= flash[:notice] %>
+	<div class="reg_container fr 50">
         <fieldset>
             <%= form_for :user, :url => {:action => "login"} do |form| %>
             <div>
                 <%= form.label :Email %><br>
-                <%= form.text_field :email %>
+                <%= form.text_field :l_email %>
             </div>
             <div>
                 <%= form.label :Jelszó %><br>
-                <%= form.password_field :password %>
+                <%= form.password_field :l_password %>
             </div>
             <%= submit_tag "Bejelentkezés" %>
             <% end %>

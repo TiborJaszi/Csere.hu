@@ -10,7 +10,7 @@
 <div class="main_frame">
 <div class="main_frame_top"><span>Termékek</span></div>
     <div class="main_frame_content">
-    <%= flash[:msg] %>
+    <%= flash[:notice] %>
         <div class="main_image_container">
             <% for product in @products %>
                 <%= content_tag_for(:div,product) do %>

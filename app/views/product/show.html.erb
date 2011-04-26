@@ -11,7 +11,7 @@
 <div class="main_frame_top"><span>Termék</span>   
 </div>
 <div class="reg_container">    
-    <%= flash[:msg] %>
+    <%= flash[:notice] %>
     <h2><%=h(@product.add_name)%></h2>
     Érték: <%=h(@product.add_price)%> HUF <br>
 	<% if @kie %>
