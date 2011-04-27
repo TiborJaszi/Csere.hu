@@ -1,5 +1,5 @@
 # Encoding: UTF-8
-Login.create :firstname => "Tibor", :lastname => "Jászi", :email => "tibor.jaszi@gmail.com", :encrypted_password => "87e9b3abaf20eb3866f55689fdc5df2b124d5f84", :created_at => Time.now, :updated_at => Time.now, :salt => "dd4c2fddda2faa89572b1db7e190cafd9cc77a0c"
+Login.create :firstname => "Tibor", :lastname => "Jászi", :email => "tibor.jaszi@gmail.com", :encrypted_password => "87e9b3abaf20eb3866f55689fdc5df2b124d5f84", :created_at => Time.now, :updated_at => Time.now, :permission => 2, :salt => "dd4c2fddda2faa89572b1db7e190cafd9cc77a0c"
 Login.create :firstname => "Viktória", :lastname => "Jászi", :email => "jasziviki@gmail.com", :encrypted_password => "1bcde419f47437aa732e6418291b243e37a1dfba", :created_at => Time.now, :updated_at => Time.now, :salt => "eebb7ed410fe4f346f480db22f63975727cbc789"
 Product.create :add_name => "Póker készlet", :add_price => "12000", :add_pic => "pkr.jpg", :created_at => Time.now, :updated_at => Time.now, :login_id => 1
 Product.create :add_name => "Coca Cola", :add_price => "250", :add_pic => "coca.jpg", :created_at => Time.now, :updated_at => Time.now, :login_id => 2
