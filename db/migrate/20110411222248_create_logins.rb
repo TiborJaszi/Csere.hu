@@ -4,7 +4,10 @@ class CreateLogins < ActiveRecord::Migration
 		t.string :firstname
 		t.string :lastname
 		t.string :email
-		t.string :password
+		t.string :encrypted_password
+		t.string :salt, :limit => 40
+		t.integer :aktiv
+		t.integer :permission, :default => 1
 		t.timestamps
     end
   end

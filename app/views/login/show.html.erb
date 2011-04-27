@@ -13,10 +13,12 @@
 <div class="reg_container clear">    
     <%= flash[:notice] %>    
     <p><%= mail_to h(@user.email) %></p>
+	<% if @current_user.id == @user.id || @current_user.permission > 1 %>
 	<div class="gomb">
     	<%= link_to "Szerkeszt",{ :controller => "login", :action => "edit", :id => @user.id } %>
     	<%= link_to "Töröl", { :controller => "login", :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
 	</div>
+	<% end %>
 </div>
 
 <div class="main_image_container clear">

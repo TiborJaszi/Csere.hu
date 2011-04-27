@@ -12,6 +12,7 @@
 </div>
     <div class="reg_container">
         <%= flash[:notice] %>
+		<% if @current_user.id == @user.id || @current_user.permission > 1 %>
         <fieldset>
             <%= form_for :user, :url => {:action => "update", :id => @user.id } do |form| %>
             <div>
@@ -30,8 +31,17 @@
                 <%= form.label :Jelszó %><br>
                 <%= form.password_field :password %>
             </div>
+			<% if @current_user.permission > 1 %>
+				<div>
+	                <%= form.label :Jogosultság %><br>
+					<%= form.select :permission, {"Felhasználó" => 1, "Admin" => 2} %>
+	            </div>
+			<% end %>
             <%= submit_tag "Módosítás" %>
             <% end %>
         </fieldset>
+		<% else %>
+			<p>Nincs jogosultsága a szerkesztéshez!</p>
+		<% end %>
     </div>
 </div>
