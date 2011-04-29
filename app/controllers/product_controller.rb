@@ -1,8 +1,13 @@
 # Encoding: UTF-8
 class ProductController < ApplicationController
   before_filter :find_product, :except => [:index, :add, :create, :list, :own, :aktivalas]
+  before_filter :bejelentkezve
   def new
     @product = Product.new
+  end
+  
+  def add
+    @aktiv = Product.find_by_id(@current_user.aktiv, :select => "add_name,add_price,add_pic")
   end
 
   def edit
@@ -20,7 +25,7 @@ class ProductController < ApplicationController
   end
 
   def show
-   @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id,aktiv")
+    @kie = Login.find_by_id(@product.login_id, :select =>"firstname,lastname,id,aktiv")
   end
 
   def create
@@ -54,7 +59,14 @@ class ProductController < ApplicationController
   
   private
   def find_product
-    @product=Product.find(params[:id])
+    @product=Product.find_by_id(params[:id])
+  end
+  
+  private
+  def bejelentkezve
+    if !logged_in?
+      redirect_to :controller => "login", :action => "index"
+    end
   end
   
   private

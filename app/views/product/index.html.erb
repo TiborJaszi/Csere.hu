@@ -12,19 +12,15 @@
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top"><span>Más termékei</span></div>
-    <div class="main_frame_content">
-    <%= flash[:notice] %>
-        <div class="main_image_container">
-            <% for product in @products %>
-                <%= content_tag_for(:div,product) do %>
-                    <%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :title => product.add_name), :action=>"show", :id => product.id %>           
-                <% end %>
-            <% end %>
-            <div class="clear"></div>
-            <div class="indicator">
-            	
-            </div>
-        </div>
-    </div>
+	<div class="main_frame_top"><span>Más termékei</span></div>
+	<div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+	<div class="main_container">
+		<div class="main_image_container">
+			<% for product in @products %>
+				<%= content_tag_for(:div,product) do %>
+					<%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :title => product.add_name), :action=>"show", :id => product.id %>           
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>

@@ -2,34 +2,40 @@
     <div class="left_side_title">
         <a href="/product" title="Ugrás a kezdőlapra" name="Csere.hu">Csere.hu</a>
     </div>
-    <div class="image_holder">        
+	<div class="image_holder">
+		<% if @aktiv %>
+	        <%= image_tag "products/" + @aktiv.add_pic, :width => "240px", :alt => @aktiv.add_name, :title => @aktiv.add_name %>
+	        <div class="product_name"><span><%= @aktiv.add_name %></span></div>
+		<% else %>
+			<p>Nincs aktív termék kiválasztva</p>
+		<% end %>
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top"><span>Termék hozzáadása</span></div>
-    <div class="main_frame_content">
-    	<div class="reg_container">
-        <%= flash[:notice] %>
-        <fieldset>
-            <%= form_for :product, :html => {:multipart => true}, :url => {:action => "create"} do |form| %>
-            <div>
-                <%= form.label :Megnevezés %><br>
-                <%= form.text_field :add_name %>
-            </div>
-            <div>
-                <%= form.label :Érték %><br>
-                <%= form.number_field :add_price %>HUF
-            </div>
-            <div>
-                <%= form.label :Kép %><br>
-                <%= form.file_field :add_pic %> (herokun read-only filerendszer van!)
-            </div>
-            <div>
-                <%= form.hidden_field :login_id, :value => session[:user]%>
-            </div>
-            <%= submit_tag "Hozzáadás" %>
-            <% end %>
-        </fieldset>        
+	<div class="main_frame_top"><span>Termék hozzáadása</span></div>
+	<div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+	<div class="main_container">
+        <div class="reg_container">
+	        <fieldset>
+	            <%= form_for :product, :html => {:multipart => true}, :url => {:action => "create"} do |form| %>
+	            <div>
+	                <%= form.label :Megnevezés %><br>
+	                <%= form.text_field :add_name %>
+	            </div>
+	            <div>
+	                <%= form.label :Érték %><br>
+	                <%= form.number_field :add_price %>HUF
+	            </div>
+	            <div>
+	                <%= form.label :Kép %><br>
+	                <%= form.file_field :add_pic %> (herokun read-only filerendszer van!)
+	            </div>
+	            <div>
+	                <%= form.hidden_field :login_id, :value => @current_user.id %>
+	            </div>
+	            <%= submit_tag "Hozzáadás", :class => "button" %>
+	            <% end %>
+	        </fieldset>        
         </div>
 	</div>
 </div>

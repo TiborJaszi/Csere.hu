@@ -7,11 +7,9 @@
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top"><span>Felhasználók</span>
-</div>
-<div class="reg_container">
-    
-    <%= flash[:notice] %>   
+	<div class="main_frame_top"><span>Felhasználók</span></div>
+	<div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+	<div class="main_container">
     <div>
         <ul>
           <% for user in @users %>

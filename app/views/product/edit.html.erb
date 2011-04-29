@@ -8,10 +8,10 @@
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top"><span>Termék módosítása</span></div>
-    <div class="main_frame_content">
+	<div class="main_frame_top"><span>Termék módosítása</span></div>
+	<div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+    <div class="main_container">
     	<div class="reg_container">
-        <%= flash[:notice] %>
         <fieldset>
 			<%= form_for :product, :html => {:multipart => true}, :url => {:action => "update", :id => @product.id } do |form| %>
             <div>
@@ -30,7 +30,7 @@
                 <%= form.label :Tulajdonos %><br>
 				<%= select :product, :login_id ,Login.find(:all).collect{|p| [p.firstname + " " + p.lastname, p.id]}%>
             </div>
-            <%= submit_tag "Mentés" %>
+            <%= submit_tag "Mentés", :class => "button" %>
             <% end %>
         </fieldset>
         </div>

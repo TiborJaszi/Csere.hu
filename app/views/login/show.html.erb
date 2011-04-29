@@ -7,25 +7,25 @@
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top">
-    <span><%=h(@user.firstname + " " + @user.lastname)%></span>
-</div>
-<div class="reg_container clear">    
-    <%= flash[:notice] %>    
-    <p><%= mail_to h(@user.email) %></p>
-	<% if @current_user.id == @user.id || @current_user.permission > 1 %>
-	<div class="gomb">
-    	<%= link_to "Szerkeszt",{ :controller => "login", :action => "edit", :id => @user.id } %>
-    	<%= link_to "Töröl", { :controller => "login", :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
+	<div class="main_frame_top"><span><%=h(@user.firstname + " " + @user.lastname)%></span></div>
+    <div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+	<div class="main_container clear">    
+	    <p><%= mail_to h(@user.email) %></p>
+		<% if @current_user.id == @user.id || @current_user.permission > 1 %>
+		<div class="gomb">
+	    	<%= link_to "Szerkeszt",{ :controller => "login", :action => "edit", :id => @user.id } %>
+	    	<%= link_to "Töröl", { :controller => "login", :action => "destroy", :id => @user.id }, :confirm => "Biztosan törli?", :method => :delete %>
+		</div>
+		<% end %>
 	</div>
-	<% end %>
-</div>
-
-<div class="main_image_container clear">
-	<h2>Felhasználó termékei:</h2>
-    <% for product in @products %>
-        <%= content_tag_for(:div,product) do %>
-            <%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :width => "70px", :height => "70px", :title => product.add_name), :controller=>"product", :action=>"show", :id => product.id, :owner => params['id'] %>           
-        <% end %>
-    <% end %>
+	<div class="main_container clear">
+		<div class="main_image_container">
+			<h2>Felhasználó termékei:</h2>
+		    <% for product in @products %>
+		        <%= content_tag_for(:div,product) do %>
+		            <%= link_to image_tag("products/" + product.get_image, :alt => product.add_name, :width => "70px", :height => "70px", :title => product.add_name), :controller=>"product", :action=>"show", :id => product.id, :owner => params['id'] %>           
+		        <% end %>
+		    <% end %>
+		</div>
+	</div>
 </div>

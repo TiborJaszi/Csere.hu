@@ -1,6 +1,8 @@
 # Encoding: UTF-8
 class LoginController < ApplicationController
   before_filter :find_user, :except => [:index, :new, :create, :list, :login, :logout]
+  before_filter :bejelentkezve, :except => [:index, :create, :new, :login]
+  
   def new
     @user = Login.new
   end
@@ -65,9 +67,16 @@ class LoginController < ApplicationController
     flash[:notice] = "Sikeresen kijelentkezett! Viszont látásra!"
     redirect_to :controller => "login", :action => "index"
   end
+
+  private
+  def bejelentkezve
+    if !logged_in?
+      redirect_to :controller => "login", :action => "index"
+    end
+  end
   
   private
   def find_user
-    @user=Login.find(params[:id])
+    @user=Login.find_by_id(params[:id])
   end
 end

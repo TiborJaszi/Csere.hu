@@ -8,31 +8,31 @@
     </div>
 </div>
 <div class="main_frame">
-<div class="main_frame_top"><span>Termék</span>   
-</div>
-<div class="reg_container">    
-    <%= flash[:notice] %>
-    <h2><%=h(@product.add_name)%></h2>
-    Érték: <%=h(@product.add_price)%> HUF <br>
-	<% if @kie %>
-		Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
-		<% if @kie.id == session[:user] %>
-			<% if @kie.aktiv != @product.id %>
-				<%= link_to "Aktiválás", :action => "aktivalas", :id => @product.id, :owner => @kie.id %>
+	<div class="main_frame_top"><span>Termék</span></div>
+	<div id="notice" class="clear"><p><%= flash[:notice] %></p></div>
+	<div class="main_container">
+	    <h2><%=h(@product.add_name)%></h2>
+	    Érték: <%=h(@product.add_price)%> HUF <br>
+		<% if @kie %>
+			Tulajdonos: <%= link_to @kie.firstname + " " + @kie.lastname, :controller => "login", :action => "show", :id => @kie.id %><br>
+			<% if @kie.id == session[:user] %>
+				<% if @kie.aktiv != @product.id %>
+					<%= link_to "Aktiválás", :action => "aktivalas", :id => @product.id, :owner => @kie.id %>
+				<% else %>
+					<span>Aktív</span>
+				<% end %>
 			<% else %>
-				<span>Aktív</span>
+				<a href="#" title="Cserélném">Cserélném</a>
 			<% end %>
 		<% else %>
-			<a href="#" title="Cserélném">Cserélném</a>
+			<strong>Tulajdonos nem található</strong>
 		<% end %>
-	<% else %>
-		<strong>Tulajdonos nem található</strong>
-	<% end %>
-	<% if @current_user.id == @product.login_id || @current_user.permission > 1 %>
-	    <div class="gomb">
-			<%= link_to "Szerkeszt", :controller => "product", :action => "edit", :id => @product.id %>
-	    	<%= link_to "Töröl", { :controller => "product", :action => "destroy", :id => @product.id }, :confirm => "Biztosan törli?", :method => :delete %>
-	    	<%= link_to "Vissza", :controller => "product", :action => "index" %>
-		</div>
-	<% end %>
+		<% if @current_user.id == @product.login_id || @current_user.permission > 1 %>
+		    <div class="gomb">
+				<%= link_to "Szerkeszt", :controller => "product", :action => "edit", :id => @product.id %>
+		    	<%= link_to "Töröl", { :controller => "product", :action => "destroy", :id => @product.id }, :confirm => "Biztosan törli?", :method => :delete %>
+		    	<%= link_to "Vissza", :controller => "product", :action => "index" %>
+			</div>
+		<% end %>
+	</div>
 </div>
