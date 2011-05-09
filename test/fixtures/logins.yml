@@ -4,8 +4,25 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+<% SALT = Digest::SHA1.hexdigest("#{Time.now}---HELLO") %>
+admin:
+	firstname : "Tibor"
+	lastname : "Jászi"
+	email : "tibor.jaszi@gmail.com"
+	encrypted_password : <%= Login.encrypt 'haho', SALT %>
+	created_at : <%= Time.now %>
+	updated_at : <%= Time.now %>
+	permission : 2
+	salt : <%= SALT %>
+regular:
+	firstname : "Viktória"
+	lastname : "Jászi"
+	email : "jasziviki@gmail.com"
+	encrypted_password : <%= Login.encrypt 'haho', SALT %>
+	created_at : <%= Time.now %>
+	updated_at : <%= Time.now %>
+	permission : 1
+	salt : <%= SALT %>
+	
 two: {}
 #  column: value
